@@ -7,18 +7,35 @@ import { DetalhesComponent } from './view/aluno/detalhes/detalhes.component';
 import { EditarComponent } from './view/aluno/editar/editar.component';
 import { ListarComponent } from './view/aluno/listar/listar.component';
 import { NovoComponent } from './view/aluno/novo/novo.component';
+import { ExcluirComponent } from './view/aluno/excluir/excluir.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'matricula', component: MatriculaComponent },
   { path: 'curso', component: CursoComponent },
-  { path: 'aluno', component: AlunoComponent },
-  { path: 'aluno', component: AlunoComponent },
-  { path: 'detalhesAluno', component: DetalhesComponent },
-  { path: 'editarAluno', component: EditarComponent },
-  { path: 'listarAluno', component: ListarComponent },
-  { path: 'novoAluno', component: NovoComponent },
-];
+  {
+    path: 'aluno', component: AlunoComponent,
+    children: [
+      { path: 'listarAluno', component: ListarComponent },
+      { path: 'detalhesAluno', component: DetalhesComponent, 
+    children:[
+      {path: ':id', component: DetalhesComponent }
+    ] },
+      { path: 'editarAluno', component: EditarComponent,
+      children:[
+        {path: ':id', component: EditarComponent }
+      ] },
+      { path: 'deletarAluno', component: ExcluirComponent,
+      children:[
+        {path: ':id', component: ExcluirComponent }
+      ] },
+      { path: 'novoAluno', component: NovoComponent }
+    ]
+  }
+]
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

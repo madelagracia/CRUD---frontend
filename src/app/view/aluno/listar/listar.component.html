@@ -1,43 +1,65 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2>Lista de alunos</h2>
-  </div>
-  <div class="panel-body">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>id</th>
-          <th>Nome</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let aluno of alunos | async">
-          <td>{{ aluno.id }}</td>
-          <td>{{ aluno.nome }}</td>
-          <td>
-            <button
-              (click)="deleteAluno(aluno.id)"
-              class="btn btn-danger"
-            >
-              Deletar
-            </button>
-            <button
-              (click)="updateAluno(aluno.id)"
-              class="btn btn-info"
-              style="margin-left: 10px"
-            >
-              Editar
-            </button>
-            <button
-              (click)="getAluno(aluno.id)"
-              class="btn btn-info"
-              style="margin-left: 10px"
-            >
-              Detalhes
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+
+<table mat-table [dataSource]="alunos" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element">{{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nome">
+    <th mat-header-cell *matHeaderCellDef> Nome </th>
+    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="acoes">
+    <th mat-header-cell *matHeaderCellDef> Ações </th>
+    <td mat-cell *matCellDef="let element"> 
+      <a [routerLink]="['/aluno/detalhesAluno', element.id]">Detalhes</a>  | 
+      <a [routerLink]="['/aluno/editarAluno', element.id]">Editar</a> |
+      <a [routerLink]="['/aluno/deletarAluno', element.id]">Deletar</a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+
+<!-- <div class="container">
+  <div class="row">
+      <div class="col-md-4" *ngFor="let aluno of alunos">
+        {{aluno.nome}}
+          <div class="card mb-4">
+              <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                          <a [routerLink]="['/aluno/detalhesAluno', aluno.id]" class="btn btn-outline-success">Detalhes</a>
+                      </div>
+                      <div class="btn-group">
+                        <a [routerLink]="['/aluno/deletarAluno', aluno.id]" class="btn btn-outline-success">Deletar</a>
+                    </div>
+                    <div class="btn-group">
+                      <a [routerLink]="['/aluno/editarAluno', aluno.id]" class="btn btn-outline-success">Editar</a>
+                  </div>
+                      <h4 class="text-muted">$ {{ aluno.nome }}</h4>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
 </div>
+
+ -->
+
+
+
+
+
+

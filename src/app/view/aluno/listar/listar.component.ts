@@ -4,13 +4,16 @@ import { AlunoService } from '../aluno.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.css']
 })
 export class ListarComponent implements OnInit {
-  alunos!: Observable<Aluno[]>;
+  displayedColumns: string[] = ['id', 'nome', 'acoes'];
+  alunos!: Aluno[];
+  
 
   constructor(private alunoService: AlunoService, private router: Router) { }
 
@@ -19,7 +22,8 @@ export class ListarComponent implements OnInit {
   }
 
   getAlunoList(): void {
-    this.alunos = this.alunoService.getAlunoList();
+    this.alunoService.getAlunoList()
+    .subscribe(alunos => this.alunos = alunos)
   }
 
   deleteAluno(id: number) {
@@ -33,11 +37,11 @@ export class ListarComponent implements OnInit {
   }
 
   getAluno(id: number){
-    this.router.navigate(['details', id]);
+    this.router.navigate(['detalhesAluno', id]);
   }                       
 
   updateAluno(id: number){
-    this.router.navigate(['update', id]);
+    this.router.navigate(['editarAluno', id]);
   }
 
 }

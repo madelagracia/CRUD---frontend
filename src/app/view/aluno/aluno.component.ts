@@ -12,8 +12,5 @@ export class AlunoComponent implements OnInit {
 
     
     ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
-
- 
 }
