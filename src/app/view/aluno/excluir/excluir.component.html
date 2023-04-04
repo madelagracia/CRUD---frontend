@@ -1,13 +1,13 @@
-<mat-card>
-    <mat-card-title>Excluir Aluno</mat-card-title>
+<mat-card *ngIf="aluno">
+    <mat-card-title>Excluir Aluno {{ aluno.nome }}</mat-card-title>
     <form>
            
     </form>
-    <button mat-raised-button (click)="deleteProduct()" color="warn">
+    <button mat-raised-button (click)="deleteAluno()" color="warn">
         Excluir
     </button>
     
-    <button mat-raised-button (click)="cancel()">
+    <button mat-raised-button [routerLink]="['/aluno']">
         Cancelar
     </button>
 </mat-card>

@@ -1,12 +1,16 @@
-<h3>Editar Alunos</h3>
-<div style="width: 400px;">
+<h2>Editar</h2>
+<br />
+<div style="width: 400px" *ngIf="aluno">
   <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Nome</label>
-      <input type="text" class="form-control" id="firstName" 
-      required [(ngModel)]="aluno.nome" name="Nome">
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
+    <mat-form-field appearance="fill">
+      <mat-label>Nome do Aluno</mat-label>
+      <input matInput required [(ngModel)]="aluno.nome" name="Nome" />
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary" (click)="updateAluno(aluno.id, aluno)">
+      Enviar
+    </button> 
+    &nbsp;
+    <button mat-raised-button [routerLink]="['/aluno']">Voltar</button>
   </form>
 </div>

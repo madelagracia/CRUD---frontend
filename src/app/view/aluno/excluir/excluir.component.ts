@@ -23,7 +23,7 @@ export class ExcluirComponent implements OnInit {
     });
   }
 
-  deleteProduct(): void {
+  deleteAluno(): void {
     this.alunoService.deleteAluno(this.aluno.id).subscribe(() => {
       this.alunoService.showMessage("Aluno excluido com sucesso!");
       this.router.navigate(["/aluno"]);

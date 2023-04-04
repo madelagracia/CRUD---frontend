@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Aluno } from '../aluno';
-import { AlunoService} from '../aluno.service';
+import { AlunoService } from '../aluno.service';
 
 @Component({
   selector: 'app-editar',
@@ -13,34 +13,25 @@ export class EditarComponent implements OnInit {
   id!: number;
   aluno!: Aluno;
 
-  constructor(private route: ActivatedRoute,private router: Router,
+  constructor(private route: ActivatedRoute, private router: Router,
     private alunoService: AlunoService) { }
 
   ngOnInit() {
     this.alunoService.getAluno(this.route.snapshot.params['id']).subscribe((aluno) => {
       this.aluno = aluno;
-
     });
-  
-    
-    this.alunoService.getAluno(this.id)
-      .subscribe(data => {
-        console.log(data)
-        this.aluno = data;
-      }, error => console.log(error));
   }
 
-  updateAluno() {
-    this.alunoService.updateAluno(this.id, this.aluno)
-      .subscribe(data => {
-        console.log(data);
-        this.aluno = this.aluno;
-        this.gotoList();
-      }, error => console.log(error));
+  updateAluno(id:number, aluno:Aluno) {
+    this.alunoService.updateAluno(id, aluno)
+    .subscribe((response) => {
+      this.router.navigate(['/aluno'])
+    })
+    
   }
 
   onSubmit() {
-    this.updateAluno();    
+    this.updateAluno(this.aluno.id, this.aluno);
   }
 
   gotoList() {

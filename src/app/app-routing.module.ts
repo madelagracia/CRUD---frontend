@@ -16,19 +16,25 @@ const routes: Routes = [
   {
     path: 'aluno', component: AlunoComponent,
     children: [
-      { path: 'listarAluno', component: ListarComponent },
-      { path: 'detalhesAluno', component: DetalhesComponent, 
-    children:[
-      {path: ':id', component: DetalhesComponent }
-    ] },
-      { path: 'editarAluno', component: EditarComponent,
-      children:[
-        {path: ':id', component: EditarComponent }
-      ] },
-      { path: 'deletarAluno', component: ExcluirComponent,
-      children:[
-        {path: ':id', component: ExcluirComponent }
-      ] },
+      { path: '', component: ListarComponent },
+      {
+        path: 'detalhesAluno',
+        children: [
+          { path: ':id', component: DetalhesComponent }
+        ]
+      },
+      {
+        path: 'editarAluno',
+        children: [
+          { path: ':id', component: EditarComponent }
+        ]
+      },
+      {
+        path: 'deletarAluno',
+        children: [
+          { path: ':id', component: ExcluirComponent }
+        ]
+      },
       { path: 'novoAluno', component: NovoComponent }
     ]
   }

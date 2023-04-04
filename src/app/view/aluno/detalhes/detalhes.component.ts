@@ -10,28 +10,20 @@ import { AlunoService } from '../aluno.service';
 })
 export class DetalhesComponent implements OnInit {
 
-  id!: number ;
+  id!: number;
   aluno!: Aluno;
 
-  constructor(private route: ActivatedRoute,private router: Router,
+  constructor(private route: ActivatedRoute, private router: Router,
     private alunoService: AlunoService) { }
 
   ngOnInit() {
-    this.alunoService.getAluno(this.route.snapshot.params['id']).subscribe((aluno) => {
+    console.log(this.route.snapshot.params['id'])
+    this.alunoService.getAluno(this.route.snapshot.params['id'])
+    .subscribe((aluno) => {
       this.aluno = aluno;
     });
-  
-    
-    this.alunoService.getAluno(this.id)
-      .subscribe(data => {
-        console.log(data)
-        this.aluno = data;
-      }, error => console.log(error));
   }
 
-  list(){
-    this.router.navigate(['aluno']);
-  }
 }
 
 
