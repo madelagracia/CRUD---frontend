@@ -1,1 +1,43 @@
-<p>listar works!</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Lista de alunos</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Nome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aluno of alunos | async">
+          <td>{{ aluno.id }}</td>
+          <td>{{ aluno.nome }}</td>
+          <td>
+            <button
+              (click)="deleteAluno(aluno.id)"
+              class="btn btn-danger"
+            >
+              Deletar
+            </button>
+            <button
+              (click)="updateAluno(aluno.id)"
+              class="btn btn-info"
+              style="margin-left: 10px"
+            >
+              Editar
+            </button>
+            <button
+              (click)="getAluno(aluno.id)"
+              class="btn btn-info"
+              style="margin-left: 10px"
+            >
+              Detalhes
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

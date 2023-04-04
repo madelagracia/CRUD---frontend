@@ -1,1 +1,15 @@
-<p>detalhes works!</p>
+<h2>Detalhes Aluno</h2> 
+
+<hr/>
+<div *ngIf="aluno">
+  <div>
+    <label><b>id </b></label> {{aluno.id}}
+  </div>
+  <div>
+    <label><b>Nome </b></label> {{aluno.nome}}
+  </div>
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Voltar para a lista de Alunos</button><br>

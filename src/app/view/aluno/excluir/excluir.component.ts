@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Aluno } from '../aluno';
-import { alunoService } from '../aluno.service';
+import { AlunoService } from '../aluno.service';
 
 @Component({
   selector: 'app-excluir',
@@ -9,10 +9,10 @@ import { alunoService } from '../aluno.service';
   styleUrls: ['./excluir.component.css']
 })
 export class ExcluirComponent implements OnInit {
-  aluno!: Aluno ;
+  aluno!: Aluno;
 
   constructor(
-    private alunoService: alunoService,
+    private alunoService: AlunoService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -25,7 +25,7 @@ export class ExcluirComponent implements OnInit {
 
   deleteProduct(): void {
     this.alunoService.deleteAluno(this.aluno.id).subscribe(() => {
-      this.alunoService.showMessage("Produto excluido com sucesso!");
+      this.alunoService.showMessage("Aluno excluido com sucesso!");
       this.router.navigate(["/aluno"]);
     });
   }

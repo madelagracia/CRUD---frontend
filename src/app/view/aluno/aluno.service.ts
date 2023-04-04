@@ -6,7 +6,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 @Injectable({
   providedIn: 'root'
 })
-export class alunoService {
+export class AlunoService {
 
   private baseUrl = 'http://localhost:8080/aluno';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Aluno } from '../aluno';
-import { alunoService } from '../aluno.service';
+import { AlunoService } from '../aluno.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,10 +12,10 @@ export class NovoComponent implements OnInit {
 
   aluno: Aluno = {
     nome: '',
-    
+    id: 0
   }
 
-  constructor(private alunoService: alunoService,
+  constructor(private alunoService: AlunoService,
       private router: Router) { }
 
   ngOnInit(): void {
