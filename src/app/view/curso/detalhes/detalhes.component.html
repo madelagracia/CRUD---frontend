@@ -1,0 +1,20 @@
+<h2>Detalhes Curso</h2>
+
+<hr />
+<div *ngIf="curso">
+  <div>
+    <label><b>id </b></label> {{ curso.id }}
+  </div>
+  <div>
+    <label><b>Descrição </b></label> {{ curso.descricao }}
+  </div>
+  <div>
+    <label><b>Ementa </b></label> {{ curso.ementa }}
+  </div>
+</div>
+
+<br />
+<br />
+<button [routerLink]="['/curso']" mat-raised-button>
+  Voltar para a lista de Curso</button
+><br />

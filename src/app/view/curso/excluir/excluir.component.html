@@ -1,0 +1,13 @@
+<mat-card *ngIf="curso">
+    <mat-card-title>Excluir Curso {{ curso.descricao }}</mat-card-title>
+    <form>
+           
+    </form>
+    <button mat-raised-button (click)="deleteCurso()" color="warn">
+        Excluir
+    </button>
+    
+    <button mat-raised-button [routerLink]="['/curso']">
+        Cancelar
+    </button>
+</mat-card>

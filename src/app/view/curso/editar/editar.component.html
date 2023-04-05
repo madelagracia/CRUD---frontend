@@ -1,0 +1,22 @@
+<h2>Editar</h2>
+<br />
+<div style="width: 400px" *ngIf="curso">
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Descrição do Curso</mat-label>
+      <input matInput required [(ngModel)]="curso.descricao" name="Descricao" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Ementa do Curso</mat-label>
+      <input matInput required [(ngModel)]="curso.ementa" name="Ementa" />
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary" (click)="updateCurso(curso.id, curso)">
+      Enviar
+    </button> 
+    &nbsp;
+    <button mat-raised-button [routerLink]="['/curso']">Voltar</button>
+  </form>
+</div>
+

@@ -1,0 +1,21 @@
+<mat-card [hidden]>
+    <mat-card-title>Novo Curso</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Descrição"
+                [(ngModel)]="curso.descricao" name="descricao">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Ementa"
+                [(ngModel)]="curso.ementa" name="ementa">
+        </mat-form-field>
+     
+    </form>
+    <button mat-raised-button (click)="createCurso()" color="primary">
+        Salvar
+    </button>
+    
+    <button mat-raised-button [routerLink]="['/curso']">
+        Cancelar
+    </button>
+</mat-card>

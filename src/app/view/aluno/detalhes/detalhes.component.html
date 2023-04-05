@@ -1,15 +1,17 @@
-<h2>Detalhes Aluno</h2> 
+<h2>Detalhes Aluno</h2>
 
-<hr/>
+<hr />
 <div *ngIf="aluno">
   <div>
-    <label><b>id </b></label> {{aluno.id}}
+    <label><b>id </b></label> {{ aluno.id }}
   </div>
   <div>
-    <label><b>Nome </b></label> {{aluno.nome}}
+    <label><b>Nome </b></label> {{ aluno.nome }}
   </div>
 </div>
 
-<br>
-<br>
-<button [routerLink]="['/aluno']" mat-raised-button> Voltar para a lista de Alunos</button><br>
+<br />
+<br />
+<button [routerLink]="['/aluno']" mat-raised-button>
+  Voltar para a lista de Alunos</button
+><br />
