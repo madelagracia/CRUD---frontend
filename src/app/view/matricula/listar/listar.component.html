@@ -1,0 +1,33 @@
+<div>
+    <button mat-raised-button routerLink="novoMatricula" routerLinkActive="active">
+      Criar Matricula
+    </button>
+  </div>
+  <br />
+  <table mat-table [dataSource]="matricula" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="id_aluno">
+      <th mat-header-cell *matHeaderCellDef>Código aluno</th>
+      <td mat-cell *matCellDef="let element">{{ element.id_aluno }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="id_curso">
+        <th mat-header-cell *matHeaderCellDef>Código curso</th>
+        <td mat-cell *matCellDef="let element">{{ element.id_curso }}</td>
+      </ng-container>
+  
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="['/matricula/deletarMatricula', element.id]">Deletar</a>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  

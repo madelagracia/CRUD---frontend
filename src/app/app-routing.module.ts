@@ -9,14 +9,29 @@ import { ListarComponent } from './view/aluno/listar/listar.component';
 import { NovoComponent } from './view/aluno/novo/novo.component';
 import { ExcluirComponent } from './view/aluno/excluir/excluir.component';
 import { DetalhesComponent as DetalheCurso } from './view/curso/detalhes/detalhes.component';
-import { EditarComponent as EditarCurso} from './view/curso/editar/editar.component';
+import { EditarComponent as EditarCurso } from './view/curso/editar/editar.component';
 import { ListarComponent as ListarCurso } from './view/curso/listar/listar.component';
 import { NovoComponent as NovoCurso } from './view/curso/novo/novo.component';
 import { ExcluirComponent as ExcluirCurso } from './view/curso/excluir/excluir.component';
-
+import { NovoComponent as NovaMatricula } from './view/matricula/novo/novo.component';
+import { ExcluirComponent as ExcluirMatricula } from './view/matricula/excluir/excluir.component';
+import { ListarComponent as ListarMatricula } from './view/matricula/listar/listar.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'matricula', component: MatriculaComponent },
+  {
+    path: 'matricula', component: MatriculaComponent,
+    children: [
+      { path: '', component: ListarMatricula},
+      {
+        path: 'deletarMatricula',
+        children: [
+          { path: ':id', component: ExcluirMatricula }
+        ]
+      },
+      { path: 'novaMatricula', component: NovaMatricula }
+
+    ]
+  },
   {
     path: 'curso', component: CursoComponent,
     children: [

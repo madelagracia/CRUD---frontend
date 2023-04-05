@@ -1,0 +1,26 @@
+<mat-card [hidden]>
+  <mat-card-title>Nova Matricula</mat-card-title>
+  <form>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Código curso"
+        [(ngModel)]="matricula.id_curso"
+        name="id_curso"
+      />
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Código Aluno"
+        [(ngModel)]="matricula.id_aluno"
+        name="id_aluno"
+      />
+    </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="createMatricula()" color="primary">
+    Salvar
+  </button>
+
+  <button mat-raised-button [routerLink]="['/matricula']">Cancelar</button>
+</mat-card>

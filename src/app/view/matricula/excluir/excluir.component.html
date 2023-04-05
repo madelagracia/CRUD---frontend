@@ -1,0 +1,13 @@
+<mat-card *ngIf="matricula">
+    <mat-card-title>Excluir Matricula {{ matricula.id }}</mat-card-title>
+    <form>
+           
+    </form>
+    <button mat-raised-button (click)="deleteMatricula()" color="warn">
+        Excluir
+    </button>
+    
+    <button mat-raised-button [routerLink]="['/matricula']">
+        Cancelar
+    </button>
+</mat-card>
