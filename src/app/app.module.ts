@@ -32,7 +32,7 @@ import { ExcluirComponent } from './view/aluno/excluir/excluir.component';
 import { DetalhesComponent } from './view/aluno/detalhes/detalhes.component';
 import { ListarComponent } from './view/aluno/listar/listar.component';
 import { EditarComponent } from './view/aluno/editar/editar.component';
-import { DetalhesComponent as DetalheCurso } from './view/curso/detalhes/detalhes.component';
+import { DetalhesComponent as DetalhesCurso } from './view/curso/detalhes/detalhes.component';
 import { EditarComponent as EditarCurso } from './view/curso/editar/editar.component';
 import { ListarComponent as ListarCurso } from './view/curso/listar/listar.component';
 import { NovoComponent as NovoCurso } from './view/curso/novo/novo.component';
@@ -57,7 +57,7 @@ import { ListarComponent as ListarMatricula } from './view/matricula/listar/list
     EditarComponent,
     NovoCurso,
     ExcluirCurso,
-    DetalheCurso,
+    DetalhesCurso,
     ListarCurso,
     EditarCurso,
     NovaMatricula,

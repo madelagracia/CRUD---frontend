@@ -8,7 +8,7 @@ import { EditarComponent } from './view/aluno/editar/editar.component';
 import { ListarComponent } from './view/aluno/listar/listar.component';
 import { NovoComponent } from './view/aluno/novo/novo.component';
 import { ExcluirComponent } from './view/aluno/excluir/excluir.component';
-import { DetalhesComponent as DetalheCurso } from './view/curso/detalhes/detalhes.component';
+import { DetalhesComponent as DetalhesCurso } from './view/curso/detalhes/detalhes.component';
 import { EditarComponent as EditarCurso } from './view/curso/editar/editar.component';
 import { ListarComponent as ListarCurso } from './view/curso/listar/listar.component';
 import { NovoComponent as NovoCurso } from './view/curso/novo/novo.component';
@@ -39,7 +39,7 @@ const routes: Routes = [
       {
         path: 'detalhesCurso',
         children: [
-          { path: ':id', component: DetalheCurso }
+          { path: ':id', component: DetalhesCurso }
         ]
       },
       {
